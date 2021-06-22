@@ -64,7 +64,7 @@ app.post("/api/patch", (req, res) => {
 
   if (tokenIsValid) {
     // do api stuff here
-    if (error) {
+    if (error || patch === []) {
       // invalid inputs
       res.send({ message: "Please input valid data/patch arguments" });
     } else {
