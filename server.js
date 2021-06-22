@@ -23,7 +23,7 @@ app.post("/api/login", (req, res) => {
   // validate inputs
   let { error, value } = loginInputs.validate(user);
   if (error) {
-    res.send("Please input a valid username/password");
+    res.send({ message: "Please input a valid username/password" });
   }
 
   jwt.sign({ user: user }, "secretkey", (err, token) => {
@@ -66,10 +66,19 @@ app.post("/api/patch", (req, res) => {
     // do api stuff here
     if (error) {
       // invalid inputs
-      res.send("Please input valid data/patch arguments");
+      res.send({ message: "Please input valid data/patch arguments" });
     } else {
+      let patchedDoc;
       // if inputs are valid
-      let patchedDoc = jsonPatch.apply_patch(data, patch);
+      try {
+        patchedDoc = jsonPatch.apply_patch(data, patch);
+      } catch (error) {
+        res.send({
+          message:
+            "an error occured while patching the document please ensure that the format is correct",
+        });
+      }
+
       res.send(patchedDoc);
     }
   } else {
