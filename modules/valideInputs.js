@@ -11,4 +11,4 @@ export const patchInputs = joi.object({
   patch: joi.array().required(),
 });
 
-export const thumbnailInputs = joi.string();
+export const thumbnailInputs = joi.string().required();

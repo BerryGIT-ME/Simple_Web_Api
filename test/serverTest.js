@@ -146,3 +146,74 @@ describe("/POST thumbnail", () => {
       });
   });
 });
+
+// test thumbnail endpoint with invalid authentication
+
+describe("/POST thumbnail", () => {
+  it("it should return a status code of 403 for invalid authorization", (done) => {
+    chai
+      .request(app)
+      .post("/api/thumbnail")
+      .send({
+        url: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+      })
+      .end((err, res) => {
+        res.should.have.status(403);
+        done();
+      });
+  });
+});
+
+// test thumbnail endpoint with valid authentication but empty url string
+
+describe("/POST thumbnail", () => {
+  it("it should return a message for empty url strings ", (done) => {
+    chai
+      .request(app)
+      .post("/api/thumbnail")
+      .send({
+        url: "",
+      })
+      .set({ Authorization: token })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.message.should.be.eq("please send a valid url");
+        done();
+      });
+  });
+});
+
+// test thumbnail endpoint with valid authentication but incomplete url string
+
+describe("/POST thumbnail", () => {
+  it("it should return a message for incomplete url strings ", (done) => {
+    chai
+      .request(app)
+      .post("/api/thumbnail")
+      .send({
+        url: "cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+      })
+      .set({ Authorization: token })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.message.should.be.eq("please send a valid url");
+        done();
+      });
+  });
+});
+
+// test thumbnail endpoint with valid authentication but missing url string
+
+describe("/POST thumbnail", () => {
+  it("it should return a message for incomplete url strings ", (done) => {
+    chai
+      .request(app)
+      .post("/api/thumbnail")
+      .set({ Authorization: token })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.message.should.be.eq("please send a valid url");
+        done();
+      });
+  });
+});

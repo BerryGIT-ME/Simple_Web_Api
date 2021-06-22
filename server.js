@@ -105,7 +105,7 @@ app.post("/api/thumbnail", (req, res) => {
 
     if (error || firstFour !== "http") {
       // url not a valid string
-      res.send({ messsage: "please send a valid url" });
+      res.send({ message: "please send a valid url" });
     } else {
       // valid token and input fields
       createThumbnail(url, res);
