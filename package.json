@@ -1,0 +1,15 @@
+{
+  "name": "hacker_bay",
+  "version": "1.0.0",
+  "description": "simple api with jwt",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "mocha",
+    "dev" : "nodemon server.mjs"
+  },
+  "author": "Okerenwogba Ikechukwu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
