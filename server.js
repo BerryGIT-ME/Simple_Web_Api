@@ -1,24 +1,17 @@
-import jwt from "jsonwebtoken";
-import joi from "joi";
-import jsonPatch from "jsonpatch";
 import express from "express";
+import jwt from "jsonwebtoken";
+import jsonPatch from "jsonpatch";
+import {
+  loginInputs,
+  patchInputs,
+  thumbnailInputs,
+} from "./modules/valideInputs.js";
+import { createThumbnail } from "./modules/thumbnail.js";
 
 // export for testing
 export const app = express();
 app.use(express.json());
 
-// prototypes for validating inputs
-const loginInputs = joi.object({
-  username: joi.string().required(),
-  password: joi.string().required(),
-});
-
-const patchInputs = joi.object({
-  data: joi.object().required(),
-  patch: joi.array().required(),
-});
-
-const thumbnailInputs = {};
 const PORT = process.env.PORT || 3000;
 
 app.post("/api/login", (req, res) => {
@@ -85,6 +78,7 @@ app.post("/api/patch", (req, res) => {
 });
 
 app.post("/api/thumbnail", (req, res) => {
+  let url = req.body.url;
   // validate token
   let tokenIsValid = verifyToken(req, res);
 
@@ -92,7 +86,21 @@ app.post("/api/thumbnail", (req, res) => {
 
   if (tokenIsValid) {
     // do api stuff here
-    res.send("authorized user");
+    // validate input
+    let firstFour;
+    let { error, value } = thumbnailInputs.validate(url);
+    if (!error) {
+      // all valid url will begin with http
+      firstFour = url.slice(0, 4);
+    }
+
+    if (error || firstFour !== "http") {
+      // url not a valid string
+      res.send({ messsage: "please send a valid url" });
+    } else {
+      // valid token and input fields
+      createThumbnail(url, res);
+    }
   } else {
     res.sendStatus(403);
   }
