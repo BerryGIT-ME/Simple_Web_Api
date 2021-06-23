@@ -4,28 +4,35 @@ import { verifyToken } from "../modules/verifyToken.js";
 import express from "express";
 let router = express.Router();
 
+/**
+ * @swagger
+ * /api/thumbnail:
+ *    post:
+ *      summary: Create a 50x50 thumbnail
+ *      description: some api information
+ *      responses:
+ *        '200':
+ *          description: some descripton about the response
+ */
 router.post("/", (req, res) => {
   let url = req.body.url;
   // validate token
   let tokenIsValid = verifyToken(req, res);
 
-  //validate inputs
-
   if (tokenIsValid) {
-    // do api stuff here
     // validate input
-    let firstFour;
     let { error, value } = thumbnailInputs.validate(url);
+    let firstFour;
     if (!error) {
-      // all valid url will begin with http
+      //if input is a valid string, check if the string contains the letters 'http'
       firstFour = url.slice(0, 4);
     }
 
     if (error || firstFour !== "http") {
-      // url not a valid string
+      // url is not a valid string
       res.send({ message: "please send a valid url" });
     } else {
-      // valid token and input fields
+      // valid token and valid url
       createThumbnail(url, res);
     }
   } else {

@@ -1,0 +1,9 @@
+2021-06-23 13:07:37 info: server started on port 3000
+2021-06-23 13:12:19 info: server started on port 3000
+2021-06-23 13:13:23 info: server started on port 3000
+2021-06-23 13:14:46 error: Error: connect ETIMEDOUT 104.18.20.183:443
+    at module.exports (C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\image-thumbnail\src\index.js:112:15)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async createThumbnail (file:///C:/Users/ike/Desktop/Node_projects/hacker_bay/modules/getThumbnail.js:9:23)
+2021-06-23 13:15:48 info: server started on port 3000
+2021-06-23 13:16:47 info: server started on port 3000
