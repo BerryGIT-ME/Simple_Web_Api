@@ -7,3 +7,36 @@
     at async createThumbnail (file:///C:/Users/ike/Desktop/Node_projects/hacker_bay/modules/getThumbnail.js:9:23)
 2021-06-23 13:15:48 info: server started on port 3000
 2021-06-23 13:16:47 info: server started on port 3000
+2021-06-23 14:26:25 info: server started on port 3000
+2021-06-23 14:26:59 error: Error: Input buffer contains unsupported image format
+    at module.exports (C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\image-thumbnail\src\index.js:112:15)
+    at async createThumbnail (file:///C:/Users/ike/Desktop/Node_projects/hacker_bay/modules/getThumbnail.js:10:23)
+2021-06-23 14:28:08 info: server started on port 3000
+2021-06-23 14:29:22 info: server started on port 3000
+2021-06-23 14:50:36 info: server started on port 3000
+2021-06-23 14:51:06 info: server started on port 3000
+2021-06-23 14:51:49 info: server started on port 3000
+2021-06-23 14:54:34 info: server started on port 3000
+2021-06-23 14:55:56 info: server started on port 3000
+2021-06-23 14:56:16 info: server started on port 3000
+2021-06-23 15:06:34 info: server started on port 3000
+2021-06-23 15:11:51 info: server started on port 3000
+2021-06-23 15:13:22 info: server started on port 3000
+2021-06-23 15:14:06 info: server started on port 3000
+2021-06-23 15:14:28 info: server started on port 3000
+2021-06-23 15:14:28 error: Error
+    at C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\jsonpatch\lib\jsonpatch.js:101:31
+    at C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\jsonpatch\lib\jsonpatch.js:40:9
+    at Object.<anonymous> (C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\jsonpatch\lib\jsonpatch.js:49:2)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:14)
+    at ModuleWrap.<anonymous> (internal/modules/esm/translators.js:199:29)
+    at ModuleJob.run (internal/modules/esm/module_job.js:169:25)
+    at async Loader.import (internal/modules/esm/loader.js:177:24)
+    at async formattedImport (C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\mocha\lib\esm-utils.js:7:14)
+    at async Object.exports.requireOrImport (C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\mocha\lib\esm-utils.js:48:32)
+    at async Object.exports.loadFilesAsync (C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\mocha\lib\esm-utils.js:73:20)
+    at async singleRun (C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\mocha\lib\cli\run-helpers.js:125:3)
+    at async Object.exports.handler (C:\Users\ike\Desktop\Node_projects\hacker_bay\node_modules\mocha\lib\cli\run.js:366:5)

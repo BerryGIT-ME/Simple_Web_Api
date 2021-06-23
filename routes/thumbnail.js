@@ -9,10 +9,10 @@ let router = express.Router();
  * /api/thumbnail:
  *    post:
  *      summary: Create a 50x50 thumbnail
- *      description: some api information
+ *      description: Accepts a valid Url in the req.body.url for an image
  *      responses:
  *        '200':
- *          description: some descripton about the response
+ *          description: returns the resized image
  */
 router.post("/", (req, res) => {
   let url = req.body.url;

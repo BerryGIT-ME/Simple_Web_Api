@@ -11,10 +11,10 @@ let router = express.Router();
  * /api/patch:
  *    post:
  *      summary: Perform json Patching
- *      description: some api information
+ *      description: accepts a json object in the req.body.data, and a patch array in the req.body.patch
  *      responses:
  *        '200':
- *          description: some descripton about the response
+ *          description: returns the patched json object in the res.body
  */
 router.post("/", (req, res) => {
   // validate token

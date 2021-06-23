@@ -16,9 +16,18 @@ let router = express.Router();
  *        content:
  *          application/json:
  *            schema:
+ *              type: object
+ *              properies:
+ *                username:
+ *                  type: string
+ *                password:
+ *                  type: string
+ *              required:
+ *                - username
+ *                - password
  *      responses:
  *        '200':
- *          description: some descripton about the response
+ *          description: returns a signed json web token
  */
 router.post("/", (req, res) => {
   let user = {
