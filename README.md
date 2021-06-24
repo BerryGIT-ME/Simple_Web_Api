@@ -1,6 +1,8 @@
 # HackerBay_SimpleAPI
 
 This is a simple web API built that exposes three endpionts
+## docker image
+$ docker pull ikeokerenwogba/simple_web_api:dev-api
 
 #### Login endpiont (/api/login)
 This is a publicly accessible endpoint for user authorization. 
