@@ -1,4 +1,4 @@
-# HackerBay_SimpleAPI
+# Simple_Web_API
 
 This is a simple web API built that exposes three endpionts
 ## docker image
